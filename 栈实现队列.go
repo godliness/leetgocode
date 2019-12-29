@@ -1,47 +1,40 @@
-package main
+package problem0232
 
-type MyStack struct {
-	enque []int
-	deque []int
+import "container/list"
+
+// MyQueue 是利用 list 实现的队列
+type MyQueue struct {
+	list *list.List
 }
 
-/** Initialize your data structure here. */
-func Constructor() MyStack {
-	return MyStack{[]int{}, []int{}}
-}
-
-/** Push element x onto stack. */
-func (this *MyStack) Push(x int) {
-	this.enque = append(this.enque, x)
-}
-
-/** Removes the element on top of the stack and returns that element. */
-func (this *MyStack) Pop() int {
-	length := len(this.enque)
-	for i := 0; i < length-1; i++ {
-		this.deque = append(this.deque, this.enque[0])
-		this.enque = this.enque[1:]
+// Constructor Initialize your data structure here.
+func Constructor() MyQueue {
+	return MyQueue{
+		list: list.New(),
 	}
-	topEle := this.enque[0]
-	this.enque = this.deque
-	this.deque = nil
-
-	return topEle
 }
 
-/** Get the top element. */
-func (this *MyStack) Top() int {
-	topEle := this.Pop()
-	this.enque = append(this.enque, topEle)
-
-	return topEle
+// Push element x to the back of queue.
+func (q *MyQueue) Push(x int) {
+	q.list.PushBack(x)
 }
 
-/** Returns whether the stack is empty. */
-func (this *MyStack) Empty() bool {
-	if len(this.enque) == 0 {
-		return true
-	}
+// Pop Removes the element from in front of queue and returns that element.
+func (q *MyQueue) Pop() int {
+	front := q.list.Front()
+	res := front.Value.(int)
+	q.list.Remove(front)
+	return res
+}
 
-	return false
+// Peek Get the front element.
+func (q *MyQueue) Peek() int {
+	front := q.list.Front()
+	res := front.Value.(int)
+	return res
+}
+
+// Empty returns whether the queue is empty.
+func (q *MyQueue) Empty() bool {
+	return q.list.Len() == 0
 }
