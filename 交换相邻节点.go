@@ -9,6 +9,7 @@ func swapPairs(head *ListNode) (r *ListNode) {
 	if head == nil || head.Next == nil {
 		return head
 	}
+	var r *ListNode
 	r, head.Next, head.Next.Next = head.Next, swapPairs(head.Next.Next), head
 	return r
 }
