@@ -2,6 +2,7 @@
 func isAnagram(s string, t string) bool {
 	m1 := map[byte]int{}
 	m2 := map[byte]int{}
+	
 	if len(s) != len(t) {
 		return false
 	}
