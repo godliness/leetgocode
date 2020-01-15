@@ -1,5 +1,5 @@
 func generateParenthesis(n int) []string {
-    results := make([]string, 0, 2*n)
+    results := make([]string, 0)
     gen(0, 0, n, "", &results)
     return results
 }
