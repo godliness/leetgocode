@@ -1,19 +1,20 @@
 func generateParenthesis(n int) []string {
-    if n == 0 { return []string{} }
-    res := []string{}
-    helper(n, n, "", &res)
-    return res
+    results := make([]string, 0, 2*n)
+    gen(0, 0, n, "", &results)
+    return results
 }
 
-func helper(l, r int, tmp string, res *[]string) {
-    if r < l { return }
-    if l == 0 && r == 0 {
-        *res = append(*res, tmp)
+func gen(left, right, n int, tmp string, results *[]string) {
+    if left == n && right == n {
+        *results = append(*results, tmp)
+        return
     }
-    if l > 0 {
-        helper(l-1, r, tmp + "(", res)
+    
+    if left < n {
+        gen(left + 1, right, n, tmp + "(", results)
     }
-    if r > 0 {
-        helper(l, r-1, tmp + ")", res)
+    
+    if left > right && right < n {
+        gen(left, right+1, n, tmp + ")", results)
     }
 }
