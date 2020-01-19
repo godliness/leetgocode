@@ -12,3 +12,14 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return prev
 }
+
+func reverseList(head *ListNode) *ListNode {
+    var prev *ListNode
+    for head != nil {
+        nextTemp := head.Next
+        head.Next = prev
+        prev = head
+        head = nextTemp
+    }
+    return prev
+}
