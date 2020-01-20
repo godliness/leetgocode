@@ -17,7 +17,6 @@ func Constructor(capacity int) LRUCache {
     return cache
 }
 
-
 func (this *LRUCache) Get(key int) int {
     le, ok := this.m[key]
     if !ok {
@@ -26,7 +25,6 @@ func (this *LRUCache) Get(key int) int {
     this.list.MoveToFront(le)
     return le.Value.(*KeyVal).val
 }
-
 
 func (this *LRUCache) Put(key int, value int)  {
     _, ok := this.m[key]
