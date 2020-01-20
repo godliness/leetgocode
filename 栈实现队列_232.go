@@ -1,7 +1,3 @@
-package problem0232
-
-import "container/list"
-
 // MyQueue 是利用 list 实现的队列
 type MyQueue struct {
 	list *list.List
