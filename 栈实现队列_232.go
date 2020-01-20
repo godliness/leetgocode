@@ -1,36 +1,38 @@
-// MyQueue 是利用 list 实现的队列
 type MyQueue struct {
-	list *list.List
+	input  []int
+	output []int
 }
 
-// Constructor Initialize your data structure here.
+/** Initialize your data structure here. */
 func Constructor() MyQueue {
-	return MyQueue{
-		list: list.New(),
-	}
+	return MyQueue{}
 }
 
-// Push element x to the back of queue.
+/** Push element x to the back of queue. */
 func (q *MyQueue) Push(x int) {
-	q.list.PushBack(x)
+	q.input = append(q.input, x)
 }
 
-// Pop Removes the element from in front of queue and returns that element.
+/** Removes the element from in front of queue and returns that element. */
 func (q *MyQueue) Pop() int {
-	front := q.list.Front()
-	res := front.Value.(int)
-	q.list.Remove(front)
-	return res
+	q.Peek()
+	element := q.output[len(q.output)-1]
+	q.output = q.output[:len(q.output)-1]
+	return element
 }
 
-// Peek Get the front element.
+/** Get the front element. */
 func (q *MyQueue) Peek() int {
-	front := q.list.Front()
-	res := front.Value.(int)
-	return res
+	if len(q.output) == 0 {
+		for len(q.input) > 0 {
+			q.output = append(q.output, q.input[len(q.input)-1])
+			q.input = q.input[:len(q.input)-1]
+		}
+	}
+	return q.output[len(q.output)-1]
 }
 
-// Empty returns whether the queue is empty.
+/** Returns whether the queue is empty. */
 func (q *MyQueue) Empty() bool {
-	return q.list.Len() == 0
+	return len(q.input) == 0 && len(q.output) == 0
 }
