@@ -1,5 +1,3 @@
-package problem0225
-
 // MyStack 是用 Queue 实现的 栈
 type MyStack struct {
 	a, b *Queue
