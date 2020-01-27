@@ -8,6 +8,5 @@ func removeElements(head *ListNode, val int) *ListNode {
             tmp = tmp.Next
         }
     }
-
-	return result.Next
+    return result.Next
 }
