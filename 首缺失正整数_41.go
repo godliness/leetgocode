@@ -1,12 +1,14 @@
 func firstMissingPositive(nums []int) int {
-    hashmap := make(map[int]int)
-    for i:=0; i<len(nums);i++ {
-        hashmap[nums[i]] = i
+    hashMap := make(map[int]struct{})
+    for i:=0; i < len(nums); i++ {
+        hashMap[nums[i]] = struct{}{}
     }
-    for i:=1; i<=len(nums);i++ {
-        if _ , ok := hashmap[i]; !ok {
+    
+    for i:=1; i<=len(nums); i++ {
+        if _, ok := hashMap[i]; !ok {
             return i
         }
-    }
-    return len(nums)+1
+    } 
+    
+    return len(nums) + 1
 }
