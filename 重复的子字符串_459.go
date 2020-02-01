@@ -3,6 +3,5 @@ func repeatedSubstringPattern(s string) bool {
 		return false
 	}
 	ss := (s + s)[1 : len(s)*2-1]
-	fmt.Println(ss)
 	return strings.Contains(ss, s)
 }
