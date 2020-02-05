@@ -1,45 +1,43 @@
 type LRUCache struct {
-    capacity int
-    list *list.List
     m map[int]*list.Element
+    list *list.List
+    capacity int 
 }
 
-type KeyVal struct {
+type KeyValue struct {
     key int
-    val int
+    value int
 }
 
-func Constructor(capacity int) LRUCache {
+func NewLRUCache (capacity int) LRUCache {
     var cache LRUCache
     cache.capacity = capacity
-    cache.list = list.New()
     cache.m = make(map[int]*list.Element)
+    cache.list = list.New()
     return cache
 }
 
-func (this *LRUCache) Get(key int) int {
-    le, ok := this.m[key]
-    if !ok {
-        return -1
-    }
-    this.list.MoveToFront(le)
-    return le.Value.(*KeyVal).val
+func (lru *LRUCache) Get(key int) int {
+    if e, ok := lru.m[key]; ok {
+        lru.list.MoveToFront(e)
+        return e.Value.(*KeyValue).value
+    } 
+    
+    return -1
 }
 
-func (this *LRUCache) Put(key int, value int)  {
-    _, ok := this.m[key]
-    if ok {
-	le := this.m[key]
-	this.list.MoveToFront(le)
-	le.Value = &KeyVal{key, value}
+func (lru *LRUCache) Put(key, value int) {
+    if e, ok := lru.m[key]; ok {
+        lru.list.MoveToFront(e)
+        e.Value = &KeyValue{key, value}
     } else {
-	if this.list.Len() == this.capacity {
-	    le := this.list.Back()
-	    mkey := le.Value.(*KeyVal).key
-	    delete(this.m, mkey)
-	    this.list.Remove(le)
-	}
-	this.list.PushFront(&KeyVal{key, value})
-	this.m[key] = this.list.Front()
+        if lru.list.Len() == lru.capacity {
+            e := lru.list.Back()
+            delete(lru.m, e.Value.(*KeyValue).key)
+            lru.list.Remove(e)
+        }
+
+        lru.list.PushFront(&KeyValue{key, value})
+        lru.m[key] = lru.list.Front()
     }
 }
