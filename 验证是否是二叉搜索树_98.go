@@ -2,10 +2,18 @@ func isValidBST(root *TreeNode) bool {
     return helper(root, nil, nil)
 }
 
-func helper(root, l, r *TreeNode) bool {
-    if root == nil { return true }
-    left, right := true, true
-    if l != nil { left = l.Val < root.Val }
-    if r != nil { right = root.Val < r.Val }
-    return left && right && helper(root.Left, l, root) && helper(root.Right, root, r)
+func helper(root, lower, upper *TreeNode) bool {
+    if root == nil {
+        return true
+    }
+
+    if lower != nil && root.Val <= lower.Val{
+        return false
+    }
+
+    if upper != nil && root.Val >= upper.Val{
+        return false
+    }
+
+    return helper(root.Left, lower, root) && helper(root.Right, root, upper)
 }
