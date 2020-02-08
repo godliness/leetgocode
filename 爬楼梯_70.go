@@ -20,7 +20,7 @@ func csrec(n int, cache map[int]int) int {
 
 
 func climbStairs(n int) int {
-     if n<=1 {
+     if n<=2 {
         return 1
     }
     dp := make([]int, n)
