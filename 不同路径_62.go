@@ -17,5 +17,6 @@ func uniquePaths(m int, n int) int {
             result[i][j] = result[i-1][j] + result[i][j-1]
         }
     }
+    
     return result[m-1][n-1]
 }
