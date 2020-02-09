@@ -5,7 +5,7 @@ func coinChange(coins []int, amount int) int {
 		dp[i] = amount + 1
 		for _, coin := range coins {
 			if coin <= i {
-				dp[i] = min(dp[i], dp[i-coin]+1)
+				dp[i] = min(dp[i], dp[i-coin]+1) //dp[i] i元钱所需要的最小数量硬币 
 			}
 		}
 	}
