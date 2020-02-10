@@ -14,3 +14,4 @@ func searchInsert(nums []int, target int) int {
   
   return l
 }
+二分查找
