@@ -12,7 +12,7 @@ func lengthOfLIS(nums []int) int {
 	for i := 1; i < n; i++ {
 		for j := 0; j < i; j++ {
 			if nums[i] > nums[j] { // nums[i]前面的 0...i-1的元素是否比nums[i]小
-				d[i] = Max(d[i], d[j] + 1)  // 截止到d[i]个位置我前面最长上升序列的个数，因为0-j的最长上升子序列个数有高有底
+				d[i] = Max(d[i], d[j] + 1)  // 截止到d[i]个位置我前面最长上升序列的个数(包括i)，因为0-j的最长上升子序列个数有高有底,所以选出一个最大的。
 			}
 		}
 		max = Max(max, d[i]) // 最后从所有的d[i]中i为0到n-1，选一个最大的。
