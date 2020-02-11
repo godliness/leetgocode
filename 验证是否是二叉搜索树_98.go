@@ -15,5 +15,5 @@ func helper(root, lower, upper *TreeNode) bool {
         return false
     }
 
-    return helper(root.Left, lower, root) && helper(root.Right, root, upper)
+    return helper(root.Left, lower, root) && helper(root.Right, root, upper) // 左子树肯定比根小 并且 右子树肯定比根大
 }
