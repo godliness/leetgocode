@@ -1,4 +1,4 @@
-func maxProfit(prices []int) int {
+func maxProfit(prices []int) int { //只能买一次卖一次
     if len(prices) <=0 {
         return 0
     }
