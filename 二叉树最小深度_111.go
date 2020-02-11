@@ -1,6 +1,6 @@
 func minDepth(root *TreeNode) int {
     if root == nil {
-	return 0
+	return 0 // 到头了
     }
     left, right := minDepth(root.Left), minDepth(root.Right) 
     if left == 0 || right == 0 { // 左面和右面不断的往下递归 一旦发现有子节点到头了，立马返回当前层+1就是结果
