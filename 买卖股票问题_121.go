@@ -4,9 +4,9 @@ func maxProfit(prices []int) int {
     }
     minV := prices[0]
     ans := 0
-    for i:=1; i<len(prices); i++ {
-        ans = max(ans, prices[i] - minV)
-        minV = min(minV, prices[i])
+    for i:=1; i<len(prices); i++ { 
+        ans = max(ans, prices[i] - minV) //后天的股价，减去之前的最小股价
+        minV = min(minV, prices[i]) //求出最小股价
     }
 
     return ans
