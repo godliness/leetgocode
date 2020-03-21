@@ -20,5 +20,4 @@ func findLengthOfLCIS(nums []int) int {
         }
     }
     return max
-    
 }
