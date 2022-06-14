@@ -34,7 +34,7 @@ Uninstall old version package if you have
 brew uninstall clang-format@14
 ```
 
-Install new version package and the installation file is <a href="[https://10.24.15.41/software/clang-format--14.0.5.big_sur.bottle.tar.gz](https://github.com/0penpie/piecloud-db-CLUSTER/raw/master/src/tools/check-style/clang-format--14.0.5.big_sur.bottle.tar.gz)">here</a>
+Install new version package and the installation file is <a href="https://github.com/0penpie/piecloud-db-CLUSTER/raw/master/src/tools/check-style/clang-format--14.0.5.big_sur.bottle.tar.gz">here</a>
 
 ```
 brew install -f ./clang-format--14.0.5.big_sur.bottle.tar.gz
