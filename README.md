@@ -19,7 +19,7 @@ Uninstall old version package if you have
 apt-get remove clang-format-14
 ```
 
-Install new version package and the installation file is <a href="http://10.24.15.41/software/clang-format-14.0.5.deb" target="_blank">here</a>
+Install new version package and the installation file is <a href="https://10.24.15.41/software/clang-format-14.0.5.deb" target="_blank">here</a>
 
 ```
 apt-get install -f ./clang-format-14.0.5.deb
@@ -34,7 +34,7 @@ Uninstall old version package if you have
 brew uninstall clang-format@14
 ```
 
-Install new version package and the installation file is <a href="http://10.24.15.41/software/clang-format--14.0.5.big_sur.bottle.tar.gz">here</a>
+Install new version package and the installation file is <a href="https://10.24.15.41/software/clang-format--14.0.5.big_sur.bottle.tar.gz">here</a>
 
 ```
 brew install -f ./clang-format--14.0.5.big_sur.bottle.tar.gz
