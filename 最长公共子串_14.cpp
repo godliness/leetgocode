@@ -6,7 +6,7 @@ public:
         }
         string res = strs[0];
         for(string& str: strs) {
-            while(str.size() < res.size() || str.substr(0, res.size()) != res)        {
+            while(str.size() < res.size() || str.substr(0, res.size()) != res) {
                 res = res.substr(0, res.size() - 1);
             }
         }
